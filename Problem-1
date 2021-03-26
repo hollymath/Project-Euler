@@ -20,6 +20,8 @@ print(sum([x for x in range (1, 1000) if x % 3 == 0 or x % 5 ==0]))
 
 #R Solutions
 
+#R Studio does not require a print statement, so I've gotten into the bad habit of dropping them -- don't do this, kids! 
+
 #approach 1
 numbers <- seq(1:999)
 addends <- c()
