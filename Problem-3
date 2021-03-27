@@ -19,4 +19,12 @@ print(factor)
 
 #R Solution
 
-#coming soon
+target <- 600851475143
+x = 2
+while ((x * x) < target){
+  while(target %% x == 0){
+    target <- target / x
+  }
+  x <- x + 1
+}  
+print(target)
