@@ -18,4 +18,22 @@ print(problem_four())
 
 #R Solution
 
-#coming soon
+palindrome_check <- function(x) {
+  x <- as.character(x)
+  forward <- unlist(strsplit(x, split = ""))
+  backwards <- rev(forward)
+  hit <- all(forward == backwards)
+  return(hit)
+}
+
+possible_answers <- c()
+range <- (100:999)
+
+for (a in range){
+  for (b in range){
+    if (palindrome_check(a * b)){
+      possible_answers <- c(possible_answers, (a * b))} 
+  }
+}
+
+print(max(possible_answers))
