@@ -1,0 +1,22 @@
+#Project Euler
+#Problem 3
+
+#What is the largest prime factor of the number 600851475143?
+
+
+#Python Solution
+
+factor = 600851475143
+x = 2
+
+while x**2 < factor:
+  while factor % x == 0:
+    factor = factor / x
+  x += 1
+
+print(factor)
+
+
+#R Solution
+
+#coming soon
