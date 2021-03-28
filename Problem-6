@@ -1,0 +1,28 @@
+#Project Euler Problem 6
+
+#find the sum of squares of the first hundred natural numbers and the square 
+#of the sum, then the difference.
+
+#Python Solution
+
+list_1 = []
+list_2 = []
+
+def sum_of_squares ():
+  for x in range (1, 101):
+    list_1.append(x**2)
+  return sum(list_1)
+
+def square_of_sums():
+  for x in range (1, 101):
+    list_2.append(x)
+  return sum(list_2) * sum(list_2)
+  
+print(square_of_sums() - sum_of_squares())
+
+
+#R Solution
+
+numbers <- seq(from = 1, to = 100, by = 1)
+answer <- sum(numbers)^2 - sum(numbers^2)
+print(paste(answer))
