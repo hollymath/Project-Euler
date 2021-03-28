@@ -1,0 +1,64 @@
+#Project Euler Problem 7
+
+#What is the 10,001st prime number?
+
+
+#Python Solution
+
+#this function is a basic prime number check
+def prime_checker (x):
+  for i in range (2, int(x**0.5) + 1):
+    if x % i == 0:
+      return False
+  return True
+
+prime_checker()
+
+
+#this function returns the Nth prime
+
+def Nth_prime (y):
+  counter = 0
+  candidate = 1
+  while counter < y:
+    candidate += 1
+    if prime_checker (candidate):
+      counter += 1
+  return candidate
+
+print(Nth_prime())
+
+
+
+#R Solution
+
+#again, a basic prime number test
+prime_checker <- function (x){
+  if (x == 2){
+    return (TRUE)
+  }
+  #the case of 2 is hard coded because of how R differs from Python with this algorithm
+  upper_bound <- as.integer(sqrt(x) + 1)
+  for (i in 2:upper_bound){
+    if (x %% i == 0){
+      return (FALSE)
+    }
+  }
+  return (TRUE)
+}
+
+#Now a function to return the Nth prime
+
+Nth_prime <- function (y){
+  counter <- 0
+  candidate <- 1
+  while (counter < y){
+    candidate <- candidate + 1
+    if (prime_checker(candidate)){
+      counter <- counter + 1
+    }
+  }
+  return(candidate)
+}
+print(Nth_prime())
+
