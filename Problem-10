@@ -1,0 +1,56 @@
+#Project Euler Problem 10
+
+#What is the sum of all prime numbers under two million?
+
+
+#Python Solution
+
+import math
+def check_for_primality (number):
+    for i in range(2,int(math.sqrt(number))+1):
+        if (number % i == 0):
+            return False
+    return True
+ 
+sum = 0
+
+for i in range(2, 2000000):
+    if check_for_primality (i):
+        sum += i
+print("The sum of all primes below 2,000,000 is:  " + str(sum))
+
+
+#R Solution
+
+#this takes about 35-40 seconds on google colab or other virtual machines;
+#it takes about 10 seconds on R Studio on my computer
+
+
+prime_checker <- function (x){
+  if (x == 2){
+    return (TRUE)
+  }
+  #the case of 2 is hard coded because of how R differs from Python with this algorithm
+  upper_bound <- as.integer(sqrt(x) + 1)
+  for (i in 2:upper_bound){
+    if (x %% i == 0){
+      return (FALSE)
+    }
+  }
+  return (TRUE)
+}
+
+#this starts with 2 so we can start checking at 3
+#and only check odd numbers
+
+sum <- 2
+
+numbers_to_check <- seq(from = 3, to = 2000000, by = 2)
+
+for (i in numbers_to_check){
+  if (prime_checker(i)){
+    sum <- sum + i
+  }
+}
+
+print(sum)
