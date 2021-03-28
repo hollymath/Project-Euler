@@ -27,14 +27,14 @@ find_pythagoras <- function (x){
   for (a in 1:x){
     for (b in 1:a){
       c <- sqrt((a*a + b*b))
-      if (c %% 1 == 0){
-        if(a + b + c == 1000){
+      #the next line checks for 1000.0, a float value, to ensure that c is an integer
+        if (a + b + c == 1000.0){
           product <- a * b * c
         }
       }
-    }
   } 
   return (product)
 }
+
 
 print(find_pythagoras (1000))
