@@ -1,0 +1,41 @@
+#Project Euler Problem 9
+
+#find the abc of the pythagorean triple for which a + b + c = 1000
+#Pythagorean triples are numbers that fit the formula for the 
+#hypotenuse of a right triangle, a^2 + b^2 = c^2
+
+#Python Solution
+
+import math
+def pythagorean_triplet(x):
+  for a in range(x):
+    for b in range (1, a):
+      c = math.sqrt(a**2 + b**2)
+      if c % 1 == 0:
+        possible = (a, b, int(c))
+        if a + b + c == 1000:
+          print(a * b * c)
+          #because I'm curious, I also want to see a, b, and c
+          print(a, b, c)
+pythagorean_triplet(1000)
+
+
+
+#R Solution
+
+find_pythagoras <- function (x){
+  for (a in 1:x){
+    for (b in 1:a){
+      c <- sqrt((a*a + b*b))
+      if (c %% 1 == 0){
+        c <- as.integer(c)
+        if(a + b + c == 1000){
+          product <- a * b * c
+        }
+      }
+    }
+  } 
+  return (product)
+}
+
+print(find_pythagoras (1000))
